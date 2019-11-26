@@ -1,19 +1,20 @@
 var request = require('request');
-// var cheerio = require('cheerio');
 var URL = require('url-parse');
-var THEMES = require('./THEMES.json');
-// var SYNC = require('./SYNC.json');
+var axios = require('axios');
 
+axios.all([
+  axios.get('https://web-hero.xyz/THEMES.json')
+]).then(axios.spread((response1) => {
+  loopp( response1.data, 'Theme' );
+})).catch(error => {
+  console.log(error);
+});
 
-for (var i = 0; i < THEMES.length; i++) {
-	k8Visit( THEMES[i].domain, THEMES[i].themeUrl, 'Theme' );
+function loopp( jsonn, ttype ){
+	for (var i = 0; i < jsonn.length; i++) {
+		k8Visit( jsonn[i].domain, jsonn[i].themeUrl, ttype );
+	}
 }
-
-
-// for (var i = 0; i < SYNC.length; i++) {
-// 	k8Visit( SYNC[i].domain, SYNC[i].themeUrl, 'Sync Plugin' );
-// }
-
 
 function k8Visit( domain, urll, type ){
 	request(urll, function(error, response, body) {
