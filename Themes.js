@@ -1,5 +1,4 @@
 var request = require('request');
-var URL = require('url-parse');
 var axios = require('axios');
 
 axios.all([
