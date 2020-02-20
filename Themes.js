@@ -1,8 +1,9 @@
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 var request = require('request');
 var axios = require('axios');
 
 axios.all([
-  axios.get('https://web-hero.xyz/THEMES.json')
+  axios.get('http://web-hero.xyz/THEMES.json')
 ]).then(axios.spread((response1) => {
   loopp( response1.data, 'Theme' );
 })).catch(error => {
