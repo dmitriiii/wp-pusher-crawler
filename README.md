@@ -1,6 +1,9 @@
 # wp-pusher-crawler
 
-type in node console
+
+INSTALLATION
+1. git clone https://github.com/dmitriiii/wp-pusher-crawler.git
+2. npm install
 
 #Update theme on websites
 node Themes.js
